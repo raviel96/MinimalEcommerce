@@ -4,6 +4,8 @@ namespace App\Filament\Resources\Categories\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class CategoryForm
@@ -12,12 +14,17 @@ class CategoryForm
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required(),
-                
-                Toggle::make('is_active')
-                    ->required()
-                    ->default(true),
+
+                Section::make([
+                    TextInput::make('name')
+                        ->required()
+                        ->maxLength(255),
+                    
+                    Toggle::make('is_active')
+                        ->required()
+                        ->default(true),
+                ]),
+                    
             ]);
     }
 }
