@@ -5,7 +5,6 @@ namespace App\Filament\Resources\Products\Schemas;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
@@ -31,8 +30,12 @@ class ProductForm
                     ])->columns(2),
 
                     Section::make('Images')->schema([
-                        FileUpload::make('image')
+                        FileUpload::make('images')
+                        ->multiple()
+                        ->disk('public')
                         ->directory('products')
+                        ->maxFiles(5)
+                        ->reorderable()
                     ]),
 
                 ])->columnSpan(2),
@@ -42,6 +45,8 @@ class ProductForm
                         TextInput::make('price')
                         ->required()
                         ->numeric()
+                        ->inputMode('decimal')
+                        ->step(0.01)
                         ->prefix('€')
                         ->minValue(0),
                     ]),
