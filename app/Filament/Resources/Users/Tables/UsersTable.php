@@ -24,6 +24,7 @@ class UsersTable
                 ->searchable(),
 
                 TextColumn::make('created_at')
+                ->toggleable(isToggledHiddenByDefault: true)
                 ->dateTime(),
             ])
             ->filters([
