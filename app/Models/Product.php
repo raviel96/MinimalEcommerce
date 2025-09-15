@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\ProductDeleted;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -23,6 +24,10 @@ class Product extends Model
      */
     protected $casts = [
         'images' => 'array',
+    ];
+
+    protected $dispatchesEvents = [
+        'deleted' => ProductDeleted::class,
     ];
 
     /**
