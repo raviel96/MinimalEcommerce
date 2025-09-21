@@ -24,6 +24,9 @@ class ProductsTable
 
                 TextColumn::make('description'),
 
+                TextColumn::make('category.name')
+                ->searchable(),
+
                 TextColumn::make('price')
                 ->money('EUR', true)
                 ->searchable(),
