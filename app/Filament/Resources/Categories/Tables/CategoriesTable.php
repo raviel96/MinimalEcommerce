@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Categories\Tables;
 
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -20,6 +21,10 @@ class CategoriesTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
+
+                ImageColumn::make('image')
+                    ->disk('public'),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

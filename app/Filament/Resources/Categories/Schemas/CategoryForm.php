@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Categories\Schemas;
 
+use Faker\Core\File;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
@@ -19,6 +21,11 @@ class CategoryForm
                     TextInput::make('name')
                         ->required()
                         ->maxLength(255),
+                    
+                    FileUpload::make('image')
+                        ->image()
+                        ->disk('public')
+                        ->directory('categories'),
                     
                     Toggle::make('is_active')
                         ->required()

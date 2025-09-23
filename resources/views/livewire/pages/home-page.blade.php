@@ -23,8 +23,7 @@
         <div class="category-list">
             @foreach($this->categories as $category)
                 <div class="category-item">
-                    {{-- <img src="{{ asset('images/categories/' . $category->image) }}" alt="{{ $category->name }} category"> --}}
-                    <h3>{{ $category->name }}</h3>
+                    <x-category-item :category="$category" /> 
                 </div>
             @endforeach
         </div>
