@@ -9,6 +9,7 @@
         @vite(['public/css/app/app.css'])
     </head>
     <body>
+        <div id="overlay" x-data x-cloak x-show="$store.navbar.open" @click="$store.navbar.toggle()"></div>
         <header>
             <livewire:partials.navbar/>
         </header>
@@ -16,5 +17,6 @@
             {{ $slot }}    
         </main>
         <livewire:partials.footer/>
+        <script src="{{asset('js/app/app.js')}}" defer></script>
     </body>
 </html>

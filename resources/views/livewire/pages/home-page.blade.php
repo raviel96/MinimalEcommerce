@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="{{ asset('images/hero-image.png') }}" alt="Hero Image">
+            <img class="w-full rounded-md" src="{{ asset('storage/hero-image.png') }}" alt="Hero Image">
         </div>
     </section>
 

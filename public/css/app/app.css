@@ -1,11 +1,12 @@
 @import url('reset.css');
 
 :root {
-    --primary-color: #11121a;
-    --hover-color: #272832;
+    --primary-color: #f2f4f8;
+    --hover-color: rgba(0,0,0, 0.1);
     --accent-color: #0071FF;
-    --text-color: #c9c9c9;
-    --font-family: 'Arial Rounded MT Bold', sans-serif;
+    --text-color: #191b23;
+
+    --font-family: 'Verdana', sans-serif;
 }
 
 body {
@@ -13,6 +14,89 @@ body {
     font-family: var(--font-family);
     background-color: var(--primary-color);
     color: var(--text-color);
+}
+
+
+/* Navbar Styles */
+#overlay {
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    inset: 0;
+    z-index: 9;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    a {
+        text-align: center;
+    }
+}
+
+.menu-button {
+    display: block;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    padding: 0.5rem;
+    margin: 0.5rem;
+
+    &:hover, &:focus-visible {
+        outline: 2.5px solid var(--accent-color);
+    }
+
+    &.open-menu-button {
+        margin-right: auto;
+    }
+}
+
+.main-nav {
+    position: fixed;
+    border-right: 1px solid var(--hover-color);
+    top: 0;
+    left: -100%;
+    height: 100dvh;
+    width: 12rem;
+    z-index: 10;
+    background-color: var(--primary-color);
+    transition: left 300ms ease-in-out;
+
+    &.show {
+        left: 0;
+    }
+
+    a {
+        display: flex;
+        color: var(--text-color);
+        padding: 1rem;
+        width: 100%;
+        padding-left: 1rem; 
+        transition: background-color 150ms ease;
+
+        &:hover {
+            background-color: var(--hover-color);
+        }
+
+        &.current-link {
+            background-color: var(--hover-color);
+            font-weight: bold;
+        }
+
+        &.accent-link {
+            background-color: var(--accent-color);
+
+            &:hover {
+                background-color: oklch(from var(--accent-color) calc(l * 0.8) c h);
+            }
+        }
+    }
+
+    .main-nav-list {
+        width: 100%;
+    
+    }
 }
 
 
