@@ -10,13 +10,17 @@
     </head>
     <body>
         <div id="overlay" x-data x-cloak x-show="$store.navbar.open" @click="$store.navbar.toggle()"></div>
-        <header>
+
+        <header class="header">
             <livewire:partials.navbar/>
         </header>
-        <main>
+
+        <main class="main">
             {{ $slot }}    
         </main>
+
         <livewire:partials.footer/>
-        <script src="{{asset('js/app/app.js')}}" defer></script>
+        
+        <script src="{{asset('js/app/app.js')}}" defer></script>     
     </body>
 </html>

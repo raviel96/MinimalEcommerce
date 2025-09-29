@@ -1,4 +1,4 @@
-<div x-data >
+<div x-data>
     <div class="logo">
         <button class="menu-button open-menu-button" @click="$store.navbar.toggle()">
             <i class="fas fa-bars"></i>
@@ -13,11 +13,11 @@
                     <i class="fas fa-times"></i>
                 </button>
             </li>
-            <li><a href="/" wire:navigate wire:current="current-link">Home</a></li>
-            <li><a href="/categories" wire:navigate wire:current="current-link">Categories</a></li>
-            <li><a href="/products" wire:navigate wire:current="current-link">Products</a></li>
-            <li><a href="/cart" wire:navigate wire:current="current-link">Cart</a></li>
-            <li><a href="/login" class="accent-link" wire:navigate wire:current="current-link">Login</a></li>
+            <li><a href="/" wire:navigate wire:current.exact="current-link">Home</a></li>
+            <li><a href="/categories" wire:navigate wire:current.exact="current-link">Categories</a></li>
+            <li><a href="/products" wire:navigate wire:current.exact="current-link">Products</a></li>
+            <li><a href="/cart" wire:navigate wire:current.exact="current-link">Cart</a></li>
+            <li><a href="/login" class="accent-link" wire:navigate wire:current.exact="current-link">Login</a></li>
         </ul>
     </nav>
 </div>

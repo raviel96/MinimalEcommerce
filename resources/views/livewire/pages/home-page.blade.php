@@ -2,15 +2,15 @@
     {{-- Hero section --}}
     <section class="hero">
         <div class="hero-content">
-            <h1>Start your journey with Minimal E-Commerce</h1>
+            <h1>Start your journey with <span class="highlight">Minimal E-Commerce</span></h1>
             <p>Purchase wide varieties of electronics products like Smartphones, Laptops or Smarwatches.</p>
-            <div>
+            <div class="hero-buttons">
                 <button type="button">Get started</button>
                 <button type="button">Contact sales team</button>
             </div>
         </div>
         <div class="hero-image">
-            <img class="w-full rounded-md" src="{{ asset('storage/hero-image.png') }}" alt="Hero Image">
+            <img src="{{ asset('storage/hero-image.png') }}" alt="Hero Image">
         </div>
     </section>
 
@@ -22,9 +22,7 @@
         </header>
         <div class="category-list">
             @foreach($this->categories as $category)
-                <div class="category-item">
-                    <x-category-item :category="$category" /> 
-                </div>
+                <x-category-item :category="$category" /> 
             @endforeach
         </div>
     </section>
