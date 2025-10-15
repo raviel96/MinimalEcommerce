@@ -1,8 +1,6 @@
 <footer class="footer">
+    <a href="/" wire:navigate>Minimal E-Commerce</a>
     <div class="footer-links-container">
-        <div>
-            <a href="/" wire:navigate>Minimal E-Commerce</a>
-        </div>
         <div class="footer-links">
             <h3>Product</h3>
             <a href="/categories" wire:navigate>Categories</a>
