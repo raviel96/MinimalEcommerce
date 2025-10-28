@@ -12,18 +12,26 @@ class ProductsPage extends Component
 
     public $categories;
 
+    public $selectedCategories = [];
+
     public function mount()
     {
         $this->categories = Category::all();
     }
 
     #[Computed(cache: true)]
-    public function products() {
-        return Product::all();
+    public function filterProducts() {
+
+        $data = Product::when(count($this->selectedCategories), function($query) {
+            $query->whereIn('category_id', $this->categories->whereIn('name', $this->selectedCategories)->pluck('id'));
+        })->get();
+
+        return $data;
     }
 
     public function render()
     {
-        return view('livewire.pages.products-page');
+
+        return view('livewire.pages.products-page', ['filteredProducts' => $this->filterProducts()]);
     }
 }

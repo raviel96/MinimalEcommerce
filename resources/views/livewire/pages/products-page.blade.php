@@ -1,20 +1,22 @@
 <div class="products-page">
     <div class="product-container">
         <div class="filters">
-             <div>
-                <label for="category">Category:</label>
-                <select id="category" wire:model="selectedCategory">
-                    <option value="">All</option>
+             <div class="category-filter">
+                <h2>Categories</h2>
+                <ul>
                     @foreach($this->categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <li>
+                            <input type="checkbox" id="{{ $category->name }}" value="{{ $category->name }}" wire:model.live="selectedCategories">
+                            <label for="{{ $category->name }}">{{ $category->name }}</label>
+                        </li>
                     @endforeach
-                </select>
+                </ul>
              </div>
         </div>
-        <div class="products-list">
-            @foreach($this->products as $product)
+        <div class="products-list" wire:loading>
+            @foreach ($filteredProducts as $product)
                 <livewire:components.product-item :product="$product" :key="$product->id"/>
-            @endforeach
+            @endforeach  
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<a href="/products/{{ $product }}" class="product-item">
+<a href="{{route('product-detail-page', $product)}}" class="product-item" wire:navigate>
     <div class="product-image">
         <img src="{{ asset('storage/' . $product->images[0]) }}" alt="{{ $product->name }}" width="200" height="250"/>
     </div>
